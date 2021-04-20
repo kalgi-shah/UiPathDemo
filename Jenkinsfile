@@ -11,6 +11,7 @@ pipeline {
         UIPATH_ORCH_LOGICAL_NAME = "imsbadxijy"
         UIPATH_ORCH_TENANT_NAME = "IMSDefault"
         UIPATH_ORCH_FOLDER_NAME = "Default"
+	APIUserKey = "GEFrH2fZCX9WiW2wHsaTnyu5B2sCUCTzTtWsnwAnKzDEykMeumxU7Dr310aOE3j1kvv6vyvos42XCuqSML/C2Q=="
     }
 
 
@@ -63,7 +64,8 @@ pipeline {
                 folderName: "${UIPATH_ORCH_FOLDER_NAME}",
                 environments: 'UAT',
                 //credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: 'APIUserKey']
-                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'),
+                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: "${APIUserKey}"),
+		echo 'Deploying UAT..the workflow...'
 
 
         )
