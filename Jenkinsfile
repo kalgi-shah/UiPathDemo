@@ -57,6 +57,7 @@ pipeline {
         stage('Deploy to UAT') {
             steps {
                 echo "Deploying ${BRANCH_NAME} to UAT "
+		echo "API User key ${'APIUserKey'}"
                 UiPathDeploy (
                 packagePath: "Output\\${env.BUILD_NUMBER}",
                 orchestratorAddress: "${UIPATH_ORCH_URL}",
@@ -64,7 +65,7 @@ pipeline {
                 folderName: "${UIPATH_ORCH_FOLDER_NAME}",
                 environments: 'UAT',
                 //credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: 'APIUserKey']
-                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: "${APIUserKey}"),
+                credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'),
 		echo 'Deploying UAT..the workflow...'
 
 
