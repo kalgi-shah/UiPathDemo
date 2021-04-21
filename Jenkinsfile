@@ -7,11 +7,11 @@ pipeline {
         MAJOR = '1'
         MINOR = '0'
         //Orchestrator Services
-        UIPATH_ORCH_URL = "https://cloud.uipath.com/imsbadxijy/"
+        UIPATH_ORCH_URL = "https://cloud.uipath.com/imsbadxijy/IMSDefault"
         UIPATH_ORCH_LOGICAL_NAME = "imsbadxijy"
         UIPATH_ORCH_TENANT_NAME = "IMSDefault"
         UIPATH_ORCH_FOLDER_NAME = "Default"
-	APIUserKey = "z5fylIxNy-N11xQS8Lg_zeus_1uH9xhGmz-jbp1ulPuQL"
+	//APIUserKey = "z5fylIxNy-N11xQS8Lg_zeus_1uH9xhGmz-jbp1ulPuQL"
     }
 
 
@@ -66,6 +66,7 @@ pipeline {
                 environments: 'DEV',
                 //credentials: [$class: 'UserPassAuthenticationEntry', credentialsId: 'APIUserKey']
                 credentials: Token(accountName: "${UIPATH_ORCH_LOGICAL_NAME}", credentialsId: 'APIUserKey'),
+
 
 
         )
